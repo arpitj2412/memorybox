@@ -2,6 +2,7 @@
 set -e
 
 echo "→ Generating icon..."
+mkdir -p app/assets
 python -c "
 from PIL import Image, ImageDraw
 img = Image.new('RGBA', (512, 512), (0,0,0,0))
