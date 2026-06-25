@@ -6,7 +6,7 @@ MemoryBox is a native Mac desktop app that takes a folder of trip or event photo
 
 ## Download
 
-Grab the latest build from the [Releases page](https://github.com/arpit-jaiswal/memorybox/releases/latest) and download `MemoryBox-mac.zip`.
+Grab the latest build from the [Releases page](https://github.com/arpitj2412/memorybox/releases/latest) and download `MemoryBox-mac.zip`.
 
 ## First launch on Mac
 
@@ -28,7 +28,7 @@ No terminal needed.
 ## Development setup
 
 ```bash
-git clone https://github.com/arpit-jaiswal/memorybox
+git clone https://github.com/arpitj2412/memorybox
 cd memorybox
 pip install -r requirements.txt -r requirements-dev.txt
 python run.py          # run in dev mode
