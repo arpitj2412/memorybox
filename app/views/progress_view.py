@@ -130,7 +130,7 @@ class ProgressView(ctk.CTkFrame):
 
             groups = group_photos(
                 input_folder,
-                threshold=int((1 - threshold) * 64),  # convert similarity to hamming
+                time_gap_seconds=int(threshold),
                 progress_callback=group_progress,
                 cancel_event=self._cancel_event,
             )

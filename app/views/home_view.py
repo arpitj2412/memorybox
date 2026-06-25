@@ -72,15 +72,15 @@ class HomeView(ctk.CTkFrame):
         self._settings_frame = ctk.CTkFrame(self, fg_color="#1a1a2e", corner_radius=10)
         # Hidden by default — placed in grid row 8 but not shown
 
-        # Similarity threshold
+        # Time gap slider
         sf = self._settings_frame
         sf.grid_columnconfigure(1, weight=1)
-        ctk.CTkLabel(sf, text="Similarity threshold", anchor="w").grid(
+        ctk.CTkLabel(sf, text="Time gap (seconds)", anchor="w").grid(
             row=0, column=0, padx=16, pady=(12, 4), sticky="w")
-        self._threshold_var = tk.DoubleVar(value=0.92)
-        self._threshold_label = ctk.CTkLabel(sf, text="0.92", width=40)
+        self._threshold_var = tk.DoubleVar(value=60)
+        self._threshold_label = ctk.CTkLabel(sf, text="60s", width=40)
         self._threshold_label.grid(row=0, column=2, padx=16)
-        ctk.CTkSlider(sf, from_=0.80, to=0.99, variable=self._threshold_var,
+        ctk.CTkSlider(sf, from_=10, to=300, variable=self._threshold_var,
                       command=self._on_threshold_change, width=240).grid(
             row=0, column=1, padx=8, pady=(12, 4))
 
@@ -154,7 +154,7 @@ class HomeView(ctk.CTkFrame):
             self._settings_toggle.configure(text="Settings ▸")
 
     def _on_threshold_change(self, val):
-        self._threshold_label.configure(text=f"{float(val):.2f}")
+        self._threshold_label.configure(text=f"{int(float(val))}s")
 
     def _browse_input(self):
         folder = filedialog.askdirectory(title="Select photos folder")
@@ -242,7 +242,7 @@ class HomeView(ctk.CTkFrame):
         config = {
             "input_folder": Path(self._input_var.get()),
             "output_folder": Path(self._output_var.get()),
-            "threshold": self._threshold_var.get(),
+            "threshold": int(self._threshold_var.get()),
             "batch_size": int(self._batch_var.get()),
             "generate_report": self._report_var.get(),
             "api_key": api_key,
