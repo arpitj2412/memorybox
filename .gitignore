@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+venv/
+dist/
+build/
+*.egg-info/
+.DS_Store
+temp/
+*.log
+app/assets/icon.icns
+app/assets/icon.iconset/
