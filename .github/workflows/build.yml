@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: MemoryBox-mac
-          path: dist/
+          path: dist/MemoryBox.app
 
       - name: Zip the .app
         run: zip -r MemoryBox-mac.zip dist/MemoryBox.app
